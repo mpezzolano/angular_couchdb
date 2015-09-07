@@ -1,0 +1,37 @@
+<div class="row">
+    <div class="pull-right">
+        <a href="#/books/add" class="btn btn-success">Add Book</a>
+    </div>
+    <br style="clear:both">
+    <table class="table table-hover" ng-show="books.length">
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Precio
+            </th>
+            <th>
+                Acciones
+            </th>
+        </tr>
+        <tr ng-repeat="book in books">
+            <td>
+                {{ book.value._id }}
+            </td>
+            <td>
+                {{ book.value.name }}
+            </td>
+            <td>
+                {{ book.value.price }}€
+            </td>
+            <td>
+                <a class="btn btn-xs btn-info" href="#/books/{{ book.value._id }}/edit">Editar</a> <a class="btn btn-xs btn-danger" ng-click="remove(book.value._id, book.value._rev)">Eliminar</a>
+            </td>
+        </tr>
+    </table>
+    <div class="alert alert-warning" ng-show="!books.length">No hay libros</div>
+</div>
